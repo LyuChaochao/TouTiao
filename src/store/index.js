@@ -8,7 +8,6 @@ const TOKEN_KEY = 'TOUTIAO_USER'
 
 export default new Vuex.Store({
     state: {
-        // 一个对象，存储当前登录用户信息（token等数据）
         user: getItem(TOKEN_KEY),
         cachePages: ['LayoutIndex']
     },

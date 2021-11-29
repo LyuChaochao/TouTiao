@@ -1,12 +1,5 @@
 <template>
   <div class="update-birthday">
-    <!--
-      currentDate 双向绑定了日期选择器
-        设置日期选择器的默认值
-        同步日期选择器选择的日期
-      min-date: 可选的最小日期
-      max-date: 可选的最大日期
-     -->
     <van-datetime-picker
       v-model="currentDate"
       type="date"

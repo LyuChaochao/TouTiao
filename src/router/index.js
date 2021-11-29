@@ -11,7 +11,7 @@ const routes = [{
         component: () =>
             import ('@/views/layout'),
         children: [{
-                path: '', // 默认子路由
+                path: '',
                 name: 'home',
                 component: () =>
                     import ('@/views/home'),

@@ -15,11 +15,6 @@
     <!-- /导航栏 -->
 
     <!-- 频道列表 -->
-    <!--
-      通过 v-model 绑定当前激活标签对应的索引值，默认情况下启用第一个标签
-      通过 animated 属性可以开启切换标签内容时的转场动画
-      通过 swipeable 属性可以开启滑动切换标签页
-     -->
     <van-tabs class="channel-tabs" v-model="active" animated swipeable>
       <van-tab
         :title="channel.name"
@@ -91,8 +86,6 @@ export default {
   methods: {
     async loadChannels () {
       try {
-        // const { data } = await getUserChannels()
-        // this.channels = data.data.channels
         let channels = []
 
         if (this.user) {
@@ -102,11 +95,10 @@ export default {
         } else {
           // 未登录，判断是否有本地的频道列表数据
           const localChannels = getItem('TOUTIAO_CHANNELS')
-          //    有，拿来使用
           if (localChannels) {
             channels = localChannels
           } else {
-            //    没有，请求获取默认频道列表
+            // 请求获取默认频道列表
             const { data } = await getUserChannels()
             channels = data.data.channels
           }

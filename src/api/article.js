@@ -1,23 +1,15 @@
-/**
- * 文章请求模块
- */
 import request from '@/utils/request'
 
-/**
- * 获取文章列表
- */
+// 获取文章列表
 export const getArticles = params => {
     return request({
         method: 'GET',
         url: 'v1_1/articles',
-        // params 选项用来配置 Query 参数
         params
     })
 }
 
-/**
- * 获取文章
- */
+// 获取文章
 export const getArticleById = articleId => {
     return request({
         method: 'GET',
@@ -25,9 +17,7 @@ export const getArticleById = articleId => {
     })
 }
 
-/**
- * 收藏文章
- */
+// 收藏文章
 export const addCollect = target => {
     return request({
         method: 'POST',
@@ -38,9 +28,7 @@ export const addCollect = target => {
     })
 }
 
-/**
- * 取消收藏文章
- */
+// 取消收藏文章
 export const deleteCollect = target => {
     return request({
         method: 'DELETE',
@@ -48,9 +36,7 @@ export const deleteCollect = target => {
     })
 }
 
-/**
- * 点赞文章
- */
+// 点赞文章
 export const addLike = target => {
     return request({
         method: 'POST',
@@ -61,9 +47,7 @@ export const addLike = target => {
     })
 }
 
-/**
- * 取消点赞文章
- */
+// 取消点赞文章
 export const deleteLike = target => {
     return request({
         method: 'DELETE',

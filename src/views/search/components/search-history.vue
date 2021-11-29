@@ -24,14 +24,6 @@ export default {
   name: 'SearchHistory',
   components: {},
   props: {
-    // Prop 数据
-    //  Prop 是受父组件数据影响的
-    //    如果是普通数据（数字、字符串、布尔值）绝对不能修改
-    //    即便改了也不会传导给父组件
-    //
-    //    如果是引用类型数据（数组、对象）
-    //        可以修改，例如 [].push(xxx)，对象.xxx = xxx
-    //        不能重新赋值, xxx = []
     searchHistories: {
       type: Array,
       required: true

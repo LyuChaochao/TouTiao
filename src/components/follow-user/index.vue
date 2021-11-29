@@ -52,23 +52,19 @@ export default {
   mounted () {},
   methods: {
     async onFollow () {
-      this.loading = true // 展示关注按钮的 loading 状态
+      this.loading = true
       try {
         if (this.isFollowed) {
           // 已关注，取消关注
           await deleteFollow(this.userId)
-          // this.article.is_followed = false
         } else {
           // 没有关注，添加关注
           await addFollow(this.userId)
-          // this.article.is_followed = true
         }
 
         // 更新视图状态
-        // this.article.is_followed = !this.article.is_followed
         this.$emit('update-is_followed', !this.isFollowed)
-        // this.$emit('input', !this.value)
-        // this.$emit('update-is_followed', !this.value)
+
       } catch (err) {
         console.log(err)
         let message = '操作失败，请重试！'
@@ -77,7 +73,7 @@ export default {
         }
         this.$toast(message)
       }
-      this.loading = false // 关闭关注按钮的 loading 状态
+      this.loading = false
     }
   }
 }

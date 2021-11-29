@@ -1,9 +1,6 @@
 <template>
   <div class="search-container">
     <!-- 搜索栏 -->
-    <!--
-      Tips: 在 van-search 外层增加 form 标签，且 action 不为空，即可在 iOS 输入法中显示搜索按钮
-     -->
     <form class="search-form" action="/">
       <van-search
         v-model="searchText"
@@ -69,9 +66,6 @@ export default {
     searchHistories (value) {
       setItem('TOUTIAO_SEARCH_HISTORIES', value)
     }
-    // searchHistories: {
-    //   handler () {}
-    // }
   },
   created () {},
   mounted () {},
@@ -81,7 +75,6 @@ export default {
       this.searchText = val
 
       // 存储搜索历史记录
-      // 要求：不要有重复历史记录、最新的排在最前面
       const index = this.searchHistories.indexOf(val)
       if (index !== -1) {
         this.searchHistories.splice(index, 1)

@@ -111,8 +111,7 @@ export default {
         // 确认退出：清除登录状态（容器中的 user + 本地存储中的 user）
         this.$store.commit('setUser', null)
       }).catch(() => {
-        // on cancel
-        // console.log('取消执行这里')
+
       })
     },
 

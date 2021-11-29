@@ -1,8 +1,6 @@
-/**
- * 用户相关请求模块
- */
 import request from '@/utils/request'
 
+// 搜索建议
 export const getSearchSuggestions = q => {
     return request({
         method: 'GET',
@@ -13,6 +11,7 @@ export const getSearchSuggestions = q => {
     })
 }
 
+// 搜索结果
 export const getSearchResult = params => {
     return request({
         method: 'GET',

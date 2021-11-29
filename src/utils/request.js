@@ -12,7 +12,6 @@ const refreshTokenReq = axios.create({
 })
 
 const request = axios.create({
-    // baseURL: 'http://ttapi.research.itcast.cn/'
     baseURL: 'http://toutiao-app.itheima.net/',
     transformResponse: [function(data) {
         try {
@@ -20,15 +19,11 @@ const request = axios.create({
         } catch (err) {
             return data
         }
-
-        // axios 默认会在内部这样来处理后端返回的数据
-        // return JSON.parse(data)
     }]
 })
 
 
 // 请求拦截器
-// Add a request interceptor
 request.interceptors.request.use(function(config) {
     // 请求发起会经过这里
     // config：本次请求的请求配置对象
@@ -37,16 +32,13 @@ request.interceptors.request.use(function(config) {
         config.headers.Authorization = `Bearer ${user.token}`
     }
 
-    // 注意：这里务必要返回 config 配置对象，否则请求就停在这里出不去了
     return config
 }, function(error) {
-    // 如果请求出错了（还没有发出去）会进入这里
     return Promise.reject(error)
 })
 
-
+// 响应拦截器
 request.interceptors.response.use(function(response) {
-    // 对响应数据做点什么
     return response;
 }, async function(error) {
 
@@ -84,7 +76,6 @@ request.interceptors.response.use(function(response) {
     } else if (status >= 500) {
         Toast.fail('服务端异常，请稍后重试')
     }
-    // 对响应错误做点什么
     return Promise.reject(error);
 });
 

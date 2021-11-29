@@ -49,19 +49,17 @@ export default {
     async onPost () {
       this.$toast.loading({
         message: '发布中...',
-        forbidClick: true, // 禁用背景点击
-        duration: 0 // 持续时间，默认 2000，0 表示持续展示不关闭
+        forbidClick: true, 
+        duration: 0 
       })
 
       try {
         const { data } = await addComment({
-          target: this.target.toString(), // 评论的目标id（评论文章即为文章id，对评论进行回复则为评论id）
+          target: this.target.toString(), // 评论的目标id
           content: this.message, // 评论内容
-          art_id: this.articleId ? this.articleId.toString() : this.articleId // 文章id，对评论内容发表回复时，需要传递此参数，表明所属文章id。对文章进行评论，不要传此参数。
+          art_id: this.articleId ? this.articleId.toString() : this.articleId // 文章id，对评论内容发表回复时，需要传递此参数
         })
 
-        // 关闭弹出层
-        // 将发布内容显示到列表顶部
         // 清空文本框
         this.message = ''
         this.$emit('post-success', data.data)

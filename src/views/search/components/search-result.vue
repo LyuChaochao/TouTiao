@@ -55,21 +55,19 @@ export default {
   methods: {
     async onLoad () {
       try {
-        // 1. 请求获取数据
         const { data } = await getSearchResult({
           page: this.page, // 页码
           per_page: this.perPage, // 每页大小
           q: this.searchText // 查询关键词
         })
 
-        // 2. 将数据添加到数组列表中
+        // 将数据添加到数组列表中
         const { results } = data.data
         this.list.push(...results)
 
-        // 3. 将本次加载中的 loading 关闭
         this.loading = false
 
-        // 4. 判断是否还有数据
+        // 判断是否还有数据
         if (results.length) {
           // 如果有，则更新获取下一个数据的页码
           this.page++

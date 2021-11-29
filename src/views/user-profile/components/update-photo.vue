@@ -45,8 +45,6 @@ export default {
   },
   methods: {
     onConfirm () {
-      // 基于服务端的裁切使用 getData 方法获取裁切参数
-      // console.log(this.cropper.getData())
 
       // 纯客户端的裁切使用 getCroppedCanvas 获取裁切的文件对象
       this.cropper.getCroppedCanvas().toBlob(blob => {
@@ -61,15 +59,8 @@ export default {
         duration: 0 // 持续展示
       })
       try {
-        // 错误的用法
-        // 如果接口要求 Content-Type 是 application/json
-        // 则传递普通 JavaScript 对象
-        // updateUserPhoto({
-        //   photo: blob
-        // })
-
-        // 如果接口要求 Content-Type 是 multipart/form-data
-        // 则你必须传递 FormData 对象
+        // 接口要求 Content-Type 是 multipart/form-data
+        // 则必须传递 FormData 对象
         const formData = new FormData()
         formData.append('photo', blob)
 

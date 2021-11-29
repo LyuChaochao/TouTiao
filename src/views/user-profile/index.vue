@@ -161,7 +161,6 @@ export default {
       this.isUpdatePhotoShow = true
 
       // file-input 如果选了同一个文件不会触发 change 事件
-      // 解决办法就是每次使用完毕，把它的 value 清空
       this.$refs.file.value = ''
     }
   }

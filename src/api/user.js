@@ -1,5 +1,6 @@
 import request from '@/utils/request'
 
+// 用户登录
 export const login = data => {
     return request({
         method: 'POST',
@@ -8,6 +9,8 @@ export const login = data => {
 
     })
 }
+
+// 获取验证码
 export const getSmsCode = mobile => {
     return request({
         method: 'GET',
@@ -15,20 +18,15 @@ export const getSmsCode = mobile => {
     })
 }
 
+// 获取用户信息
 export const getUserInfo = () => {
     return request({
         method: 'GET',
         url: 'v1_0/user'
-            // 发送请求头数据
-            // headers: {
-            //   // 注意：该接口需要授权才能访问
-            //   //       token的数据格式：Bearer token数据，注意 Bearer 后面有个空格
-            //   Authorization: `Bearer ${store.state.user.token}`
-            // }
     })
 }
 
-
+// 获取用户频道
 export const getUserChannels = () => {
     return request({
         method: 'GET',
@@ -36,11 +34,7 @@ export const getUserChannels = () => {
     })
 }
 
-
-
-/**
- * 关注用户
- */
+// 关注用户
 export const addFollow = target => {
     return request({
         method: 'POST',
@@ -51,9 +45,7 @@ export const addFollow = target => {
     })
 }
 
-/**
- * 取消关注用户
- */
+// 取消关注用户
 export const deleteFollow = target => {
     return request({
         method: 'DELETE',
@@ -62,19 +54,15 @@ export const deleteFollow = target => {
 }
 
 
-/**
- * 获取当前登录用户的个人资料
- */
-export const getUserProfile = target => {
+// 获取用户个人信息
+export const getUserProfile = () => {
     return request({
         method: 'GET',
         url: '/v1_0/user/profile'
     })
 }
 
-/**
- * 更新用户资料
- */
+// 更新用户资料
 export const updateUserProfile = data => {
     return request({
         method: 'PATCH',
@@ -83,9 +71,7 @@ export const updateUserProfile = data => {
     })
 }
 
-/**
- * 更新用户照片资料
- */
+// 更新用户头像
 export const updateUserPhoto = data => {
     return request({
         method: 'PATCH',

@@ -47,7 +47,6 @@ export default {
         }
 
         // 更新视图
-        // 自定义事件修改数据并不是立即的
         this.$emit('input', !this.value)
 
         this.$toast.success(!this.value ? '收藏成功' : '取消收藏')
